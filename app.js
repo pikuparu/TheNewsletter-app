@@ -3,6 +3,8 @@ const bodyParser=require("body-parser");
 const request=require("request");
 const https=require("https");
 const app=express();
+require('dotenv').config();
+
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -35,8 +37,7 @@ app.post("/",function(req,res){
   const options = {
 
    method:"POST",
-   auth:"parvathy1:3c06207f79987c476360935991f9159b-us8"
-
+   auth: 'parvathy1:${process.env.API_KEY}'
 }
  const request= https.request(url,options,function(response){
     if (response.statusCode ===200){
@@ -60,5 +61,3 @@ app.listen(3000,function(){
   console.log("Server is running on port 3000");
 });
 
-// my api key:3c06207f79987c476360935991f9159b-us8
-//unique id:a20481022c
