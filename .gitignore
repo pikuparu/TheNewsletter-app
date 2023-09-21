@@ -1,0 +1,3 @@
+# Ignore both .env and .env.txt
+.env
+.env.txt
